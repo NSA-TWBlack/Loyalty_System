@@ -80,6 +80,7 @@ class TransactionController extends AbstractController
             $transaction->setAmount((string) $data['amount']);
             $transaction->setStatus('completed');
             $this->em->persist($transaction);
+            $this->em->flush();
 
             // Bước 2: Tính điểm thưởng (1% * amount)
             $pointAmount = (int) round($data['amount'] * 0.01);
