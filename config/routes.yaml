@@ -10,6 +10,6 @@
 controllers:
     resource: routing.controllers
 
-lucky_number:
-    path: /lucky/number
-    controller: App\Controller\LuckyController::number
+# lucky_number:
+#     path: /lucky/number
+#     controller: App\Controller\LuckyController::number

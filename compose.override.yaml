@@ -4,4 +4,23 @@ services:
   database:
     ports:
       - "5432"
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: '%env(DATABASE_PASSWORD)%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
 ###< doctrine/doctrine-bundle ###
+volumes:
+  mysql_data:
